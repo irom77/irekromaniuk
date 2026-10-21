@@ -3,98 +3,151 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A draft layout for a job-search portfolio.">
-  <title>Portfolio Preview — Draft</title>
+  <meta name="description" content="Irek Romaniuk — cybersecurity, automation, applied AI, and FPV projects.">
+  <meta name="theme-color" content="#f4f2eb">
+  <title>Irek Romaniuk — Cybersecurity, Automation & Applied AI</title>
   <style>
     :root {
       color-scheme: light;
-      --ink: #172c35;
-      --muted: #53666b;
+      --ink: #152b32;
+      --muted: #53666a;
       --paper: #f4f2eb;
       --white: #fffefa;
-      --line: #d8ded7;
-      --green: #25594f;
-      --lime: #d4ed91;
-      --orange: #db764c;
+      --line: #d7ddd5;
+      --green: #22564c;
+      --lime: #d5ec98;
+      --orange: #d7774f;
+      --blue: #c8e1e5;
       --serif: Georgia, "Times New Roman", serif;
       --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
     body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.55; }
     a { color: inherit; }
+    a:hover { color: var(--green); }
     .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
-    .draft-bar { padding: 9px 20px; color: #fff; background: var(--green); text-align: center; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
-    header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 23px; border-bottom: 1px solid var(--line); }
-    .wordmark { font-weight: 750; letter-spacing: -.04em; }
-    nav { display: flex; gap: 26px; color: var(--muted); font-size: 13px; }
+    .topline { padding: 9px 20px; color: #f4f2eb; background: var(--green); text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 21px; border-bottom: 1px solid var(--line); }
+    .wordmark { font-weight: 780; letter-spacing: -.045em; text-decoration: none; }
+    .wordmark span { color: var(--orange); }
+    nav { display: flex; gap: 24px; color: var(--muted); font-size: 12px; }
     nav a { text-decoration: none; }
-    nav a:hover { color: var(--green); }
-    .hero { display: grid; grid-template-columns: 1.3fr .7fr; gap: 64px; align-items: center; padding-block: 86px 76px; }
-    .eyebrow { margin: 0 0 14px; color: var(--green); font-size: 12px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 54px; align-items: center; padding-block: 80px 72px; }
+    .eyebrow { margin: 0 0 13px; color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
     h1, h2, h3, p { margin-top: 0; }
-    h1 { max-width: 680px; margin-bottom: 20px; font-family: var(--serif); font-size: clamp(48px, 7vw, 82px); font-weight: 400; letter-spacing: -.055em; line-height: .99; }
+    h1 { max-width: 710px; margin-bottom: 20px; font-family: var(--serif); font-size: clamp(48px, 7vw, 82px); font-weight: 400; letter-spacing: -.06em; line-height: .99; }
     h1 em { color: var(--green); font-weight: 400; }
-    .lead { max-width: 590px; margin-bottom: 26px; color: var(--muted); font-size: 17px; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; padding: 0 18px; border: 1px solid var(--green); border-radius: 3px; background: var(--green); color: white; font-size: 13px; font-weight: 700; text-decoration: none; }
+    .lead { max-width: 620px; margin-bottom: 27px; color: var(--muted); font-size: 16px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 11px; }
+    .button { display: inline-flex; min-height: 45px; align-items: center; justify-content: center; gap: 8px; padding: 0 17px; border: 1px solid var(--green); border-radius: 3px; background: var(--green); color: white; font-size: 12px; font-weight: 750; text-decoration: none; }
+    .button:hover { background: #173e37; color: #fff; }
     .button.secondary { background: transparent; color: var(--green); }
-    .profile-card { position: relative; min-height: 315px; display: flex; flex-direction: column; justify-content: space-between; padding: 25px; overflow: hidden; background: var(--lime); }
-    .profile-card::after { position: absolute; right: -42px; bottom: -75px; width: 230px; height: 230px; border: 1px solid #819c49; border-radius: 50%; content: ""; box-shadow: 0 0 0 24px #d4ed9166, 0 0 0 49px #d4ed9144; }
-    .profile-label { font-size: 11px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
-    .profile-mark { position: relative; z-index: 1; align-self: flex-end; display: grid; width: 84px; height: 84px; place-items: center; border-radius: 50%; background: var(--green); color: var(--lime); font-family: var(--serif); font-size: 34px; }
-    .profile-note { position: relative; z-index: 1; max-width: 180px; margin: 0; font-family: var(--serif); font-size: 25px; line-height: 1.15; }
-    .section { padding-block: 68px; border-top: 1px solid var(--line); }
-    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 28px; }
-    h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(34px, 4vw, 48px); font-weight: 400; letter-spacing: -.04em; line-height: 1.1; }
-    .section-intro { max-width: 390px; margin-bottom: 2px; color: var(--muted); font-size: 14px; }
-    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .proof-card { min-height: 194px; padding: 22px; border: 1px solid var(--line); background: var(--white); }
-    .proof-card .number { color: var(--orange); font-family: var(--serif); font-size: 29px; }
-    .proof-card h3 { margin: 20px 0 8px; font-size: 16px; }
-    .proof-card p { margin: 0; color: var(--muted); font-size: 13px; }
-    .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .work-card { display: flex; min-height: 220px; flex-direction: column; justify-content: space-between; padding: 23px; background: var(--green); color: white; }
-    .work-card:nth-child(2) { background: #e8e4d8; color: var(--ink); }
-    .work-card .tag { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .75; }
-    .work-card h3 { max-width: 340px; margin: 24px 0 7px; font-family: var(--serif); font-size: 29px; font-weight: 400; line-height: 1.12; }
-    .work-card p { max-width: 390px; margin: 0; font-size: 13px; opacity: .8; }
-    .interest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .interest { min-height: 212px; display: flex; flex-direction: column; justify-content: space-between; padding: 20px; border: 1px solid var(--line); background: var(--white); }
-    .interest-icon { display: grid; width: 43px; height: 43px; place-items: center; border-radius: 50%; background: var(--lime); color: var(--green); font-family: var(--serif); font-size: 20px; }
-    .interest h3 { margin-bottom: 5px; font-family: var(--serif); font-size: 25px; font-weight: 400; }
-    .interest p { margin: 0; color: var(--muted); font-size: 12px; }
-    .cta { display: flex; justify-content: space-between; align-items: center; gap: 25px; padding: 34px; background: var(--lime); }
-    .cta h2 { max-width: 510px; font-size: clamp(29px, 4vw, 42px); }
-    .cta p { margin: 8px 0 0; color: #455940; font-size: 13px; }
-    footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 25px; color: var(--muted); font-size: 12px; }
+    .button.secondary:hover { background: #e7eadf; }
+    .hero-visual { position: relative; min-height: 330px; display: flex; flex-direction: column; justify-content: space-between; padding: 24px; overflow: hidden; background: var(--lime); }
+    .hero-visual::before, .hero-visual::after { position: absolute; border: 1px solid #819c4d; border-radius: 50%; content: ""; }
+    .hero-visual::before { width: 300px; height: 300px; right: -96px; bottom: -145px; box-shadow: 0 0 0 25px #d5ec9866, 0 0 0 51px #d5ec9844; }
+    .hero-visual::after { width: 10px; height: 10px; right: 72px; top: 84px; border: 0; background: var(--orange); box-shadow: 30px 28px 0 -2px var(--green), -30px 53px 0 -3px #688a53; }
+    .visual-label { position: relative; z-index: 1; font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .visual-flow { position: relative; z-index: 1; display: grid; gap: 10px; max-width: 255px; }
+    .flow-step { display: flex; align-items: center; gap: 12px; padding: 11px 13px; border: 1px solid #a9bd7b; background: #f3f8dcbb; font-size: 12px; font-weight: 700; }
+    .flow-step b { display: grid; width: 24px; height: 24px; place-items: center; border-radius: 50%; background: var(--green); color: var(--lime); font-size: 10px; }
+    .visual-foot { position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 10px; color: #3f583e; font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+    .proof-strip { display: flex; flex-wrap: wrap; gap: 9px; padding-bottom: 36px; }
+    .proof-strip span { padding: 7px 11px; border: 1px solid var(--line); color: #46585b; font-size: 10px; font-weight: 700; letter-spacing: .04em; }
+    .section { padding-block: 64px; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 26px; }
+    h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(34px, 4vw, 49px); font-weight: 400; letter-spacing: -.045em; line-height: 1.08; }
+    .section-intro { max-width: 410px; margin-bottom: 2px; color: var(--muted); font-size: 13px; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .project { min-height: 230px; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 22px; border: 1px solid var(--line); background: var(--white); }
+    .project:nth-child(2) { background: var(--blue); border-color: var(--blue); }
+    .project:nth-child(3) { background: #e8e4d8; border-color: #e8e4d8; }
+    .project:nth-child(4) { background: var(--green); border-color: var(--green); color: white; }
+    .project-meta { display: flex; width: 100%; justify-content: space-between; gap: 10px; color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .project:nth-child(4) .project-meta { color: var(--lime); }
+    .project h3 { max-width: 470px; margin: 24px 0 9px; font-family: var(--serif); font-size: 27px; font-weight: 400; letter-spacing: -.025em; line-height: 1.1; }
+    .project p { max-width: 485px; margin-bottom: 18px; color: var(--muted); font-size: 12px; }
+    .project:nth-child(4) p { color: #d4e3df; }
+    .project-link { display: inline-flex; gap: 8px; align-items: center; color: var(--green); font-size: 11px; font-weight: 750; text-decoration: none; }
+    .project:nth-child(4) .project-link { color: var(--lime); }
+    .project-link:hover { text-decoration: underline; }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin-top: 16px; }
+    .principle { padding: 18px; border-top: 2px solid var(--green); background: #ecebe3; }
+    .principle h3 { margin: 0 0 7px; font-size: 13px; }
+    .principle p { margin: 0; color: var(--muted); font-size: 11px; }
+    .hobby-case { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
+    .hobby-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 25px; background: var(--green); color: white; }
+    .hobby-copy .eyebrow { color: var(--lime); }
+    .hobby-copy h3 { max-width: 470px; margin: 15px 0; font-family: var(--serif); font-size: clamp(30px, 4vw, 43px); font-weight: 400; letter-spacing: -.04em; line-height: 1.04; }
+    .hobby-copy p { max-width: 500px; margin-bottom: 19px; color: #d4e3df; font-size: 12px; }
+    .hobby-copy .button { border-color: var(--lime); background: var(--lime); color: var(--green); }
+    .hobby-copy .button:hover { background: #e1f4b5; }
+    .metric { display: flex; align-items: baseline; gap: 11px; margin: 5px 0 20px; color: var(--lime); }
+    .metric strong { font-family: var(--serif); font-size: 40px; font-weight: 400; letter-spacing: -.04em; }
+    .metric span { color: #d4e3df; font-size: 10px; }
+    .video-card { display: flex; flex-direction: column; background: #111c1f; color: white; }
+    .video-card iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; }
+    .video-caption { padding: 16px 18px; }
+    .video-caption strong { display: block; margin-bottom: 4px; font-family: var(--serif); font-size: 20px; font-weight: 400; }
+    .video-caption span { color: #bdcdca; font-size: 10px; }
+    .hobby-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 14px; }
+    .hobby-tool { padding: 17px; border: 1px solid var(--line); background: var(--white); }
+    .hobby-tool h3 { margin: 0 0 6px; font-size: 13px; }
+    .hobby-tool p { margin: 0 0 9px; color: var(--muted); font-size: 11px; }
+    .hobby-tool a { color: var(--green); font-size: 10px; font-weight: 750; text-decoration: none; }
+    .interests { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 19px; }
+    .interests span { padding: 8px 12px; border: 1px solid #94a69a; border-radius: 100px; color: #455a51; font-size: 11px; font-weight: 700; }
+    .experience-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 45px; }
+    .experience-lead { color: var(--muted); font-size: 13px; }
+    .experience-lead strong { color: var(--ink); }
+    .timeline { display: grid; gap: 0; }
+    .role { display: grid; grid-template-columns: 115px 1fr; gap: 18px; padding: 16px 0; border-top: 1px solid var(--line); }
+    .role time { color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: .05em; }
+    .role h3 { margin: 0 0 4px; font-size: 13px; }
+    .role p { margin: 0; color: var(--muted); font-size: 11px; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .skill-list span { padding: 7px 10px; background: #e5e8df; color: #35554c; font-size: 10px; font-weight: 700; }
+    .contact { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 30px; background: var(--lime); }
+    .contact h2 { max-width: 550px; font-size: clamp(30px, 4vw, 43px); }
+    .contact p { margin: 8px 0 0; color: #455940; font-size: 12px; }
+    .socials { display: flex; flex-wrap: wrap; gap: 10px; }
+    .socials a { display: inline-flex; min-height: 40px; align-items: center; padding-inline: 13px; border: 1px solid #718746; color: var(--green); font-size: 11px; font-weight: 750; text-decoration: none; }
+    .socials a:hover { background: #e7f5c4; }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 23px; color: var(--muted); font-size: 10px; }
     :focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
     @media (max-width: 760px) {
-      .wrap { width: min(100% - 32px, 560px); }
+      .wrap { width: min(100% - 32px, 570px); }
       header { align-items: flex-start; flex-direction: column; gap: 14px; }
-      nav { flex-wrap: wrap; gap: 14px 20px; }
-      .hero { grid-template-columns: 1fr; gap: 30px; padding-block: 56px; }
-      .profile-card { min-height: 250px; }
+      nav { flex-wrap: wrap; gap: 12px 18px; }
+      .hero { grid-template-columns: 1fr; gap: 29px; padding-block: 53px; }
+      .hero-visual { min-height: 280px; }
       .section { padding-block: 48px; }
       .section-head { align-items: flex-start; flex-direction: column; }
-      .proof-grid, .interest-grid { grid-template-columns: 1fr; }
-      .proof-card { min-height: 155px; }
-      .work-grid { grid-template-columns: 1fr; }
-      .cta { align-items: flex-start; flex-direction: column; padding: 24px; }
+      .project-grid, .hobby-case, .experience-grid { grid-template-columns: 1fr; }
+      .project { min-height: 205px; }
+      .principles { grid-template-columns: 1fr; }
+      .experience-grid { gap: 18px; }
+      .contact { align-items: flex-start; flex-direction: column; padding: 24px; }
       footer { flex-direction: column; }
+    }
+    @media (max-width: 450px) {
+      .role { grid-template-columns: 86px 1fr; gap: 12px; }
+      .hobby-tools { grid-template-columns: 1fr; }
+      .visual-foot { font-size: 8px; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
-  <div class="draft-bar">Visual draft · placeholder content · not ready to publish</div>
+  <div class="topline">Cybersecurity · Automation · Applied AI</div>
   <div class="wrap">
     <header>
-      <a class="wordmark" href="#top" aria-label="Portfolio home">YOUR NAME<span aria-hidden="true">.</span></a>
+      <a class="wordmark" href="#top">IREK ROMANIUK<span>.</span></a>
       <nav aria-label="Main navigation">
-        <a href="#highlights">Highlights</a>
         <a href="#work">Selected work</a>
-        <a href="#interests">Beyond work</a>
+        <a href="#fpv">AI + FPV</a>
+        <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -102,64 +155,127 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div>
-          <p class="eyebrow">Portfolio · [Target role or specialty]</p>
-          <h1 id="hero-title">Making meaningful work <em>happen.</em></h1>
-          <p class="lead">A short introduction goes here: what you do, the problems you solve, and the kind of opportunity you’re looking for.</p>
+          <p class="eyebrow">Security practitioner · Automation builder · AI enthusiast</p>
+          <h1 id="hero-title">I turn complex signals into <em>useful action.</em></h1>
+          <p class="lead">I’m Irek, a cybersecurity professional with 20+ years across security engineering, automation, and audit. I build practical tools that help people investigate, decide, and get work done—including AI-powered tools for security teams.</p>
           <div class="actions">
-            <a class="button" href="#work">Explore selected work <span aria-hidden="true">↗</span></a>
-            <a class="button secondary" href="#contact">Get in touch</a>
+            <a class="button" href="#work">Explore selected work <span aria-hidden="true">↘</span></a>
+            <a class="button secondary" href="https://linkedin.com/in/Romaniuk" target="_blank" rel="noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <aside class="profile-card" aria-label="Profile image placeholder">
-          <span class="profile-label">A little about me</span>
-          <p class="profile-note">Curious by nature.<br>Useful by design.</p>
-          <span class="profile-mark" aria-hidden="true">YN</span>
+        <aside class="hero-visual" aria-label="A practical workflow from signal to action">
+          <span class="visual-label">How I approach a problem</span>
+          <div class="visual-flow">
+            <div class="flow-step"><b>01</b> Find the signal</div>
+            <div class="flow-step"><b>02</b> Add context</div>
+            <div class="flow-step"><b>03</b> Make the next step clear</div>
+          </div>
+          <div class="visual-foot"><span>Security operations</span><span>Human-reviewed AI</span></div>
         </aside>
       </section>
 
-      <section class="section" id="highlights" aria-labelledby="highlights-title">
-        <div class="section-head">
-          <div><p class="eyebrow">Proof points</p><h2 id="highlights-title">The work, in brief.</h2></div>
-          <p class="section-intro">A few outcome-led highlights make it easy for a recruiter to see the value you bring. Each item can link to the story behind it.</p>
-        </div>
-        <div class="proof-grid">
-          <article class="proof-card"><span class="number">01</span><h3>[Achievement headline]</h3><p>Situation, action, and a concrete result or impact.</p></article>
-          <article class="proof-card"><span class="number">02</span><h3>[Achievement headline]</h3><p>Situation, action, and a concrete result or impact.</p></article>
-          <article class="proof-card"><span class="number">03</span><h3>[Achievement headline]</h3><p>Situation, action, and a concrete result or impact.</p></article>
-        </div>
-      </section>
+      <div class="proof-strip" aria-label="Career background">
+        <span>TRANSUNION · CYBERSECURITY</span>
+        <span>ADVISOR360 · SECURITY AUTOMATION</span>
+        <span>NETWORK SECURITY & AUDIT</span>
+        <span>PART 107 REMOTE PILOT</span>
+      </div>
 
       <section class="section" id="work" aria-labelledby="work-title">
         <div class="section-head">
-          <div><p class="eyebrow">Selected work</p><h2 id="work-title">A closer look.</h2></div>
-          <p class="section-intro">Use two or three concise case studies to show how you think, collaborate, and deliver.</p>
+          <div><p class="eyebrow">Selected projects</p><h2 id="work-title">Applied AI, grounded in practice.</h2></div>
+          <p class="section-intro">A selection of recent work across AI-assisted security operations, secure AI, and automation. Each project links to its source and current scope.</p>
         </div>
-        <div class="work-grid">
-          <article class="work-card"><span class="tag">Case study · [Area]</span><div><h3>[Project or initiative title]</h3><p>A short summary of the challenge, your contribution, and what changed.</p></div></article>
-          <article class="work-card"><span class="tag">Case study · [Area]</span><div><h3>[Project or initiative title]</h3><p>A short summary of the challenge, your contribution, and what changed.</p></div></article>
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-meta"><span>AI · Security operations</span><span>Python</span></div>
+            <div><h3>Standalone SOC Case Analyzer</h3><p>Turns exported security cases into structured investigation reports. It normalizes inputs, supports optional evidence enrichment, and keeps the source case unchanged.</p></div>
+            <a class="project-link" href="https://github.com/irom77/soc-analyst" target="_blank" rel="noreferrer">View the case analyzer <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="project">
+            <div class="project-meta"><span>AI · Security engineering</span><span>LLM security</span></div>
+            <div><h3>AI Security Projects</h3><p>A hands-on portfolio lab for testing AI systems and documenting attack, control, and retest. The automated red-teaming lab is complete; additional labs are marked as planned in the repository.</p></div>
+            <a class="project-link" href="https://github.com/irom77/AI-Security-Projects" target="_blank" rel="noreferrer">Explore the project lab <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="project">
+            <div class="project-meta"><span>AI · Personal productivity</span><span>JavaScript</span></div>
+            <div><h3>JobMatchAI</h3><p>An AI-assisted job discovery workflow that evaluates public job postings against a profile and records results in Google Sheets.</p></div>
+            <a class="project-link" href="https://github.com/irom77/JobMatchAI" target="_blank" rel="noreferrer">View JobMatchAI on GitHub <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="project">
+            <div class="project-meta"><span>AI · Security operations</span><span>Agent workflows</span></div>
+            <div><h3>Agentic SOC</h3><p>Exploring how LLMs and agents can support alert triage, case investigation, enrichment, and analyst workflows alongside traditional security operations.</p></div>
+            <a class="project-link" href="https://github.com/irom77/agentic-soc" target="_blank" rel="noreferrer">See the Agentic SOC repo <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+        <div class="principles" aria-label="Project principles">
+          <article class="principle"><h3>Evidence stays visible</h3><p>Keep source data, provenance, and uncertainty close to generated analysis.</p></article>
+          <article class="principle"><h3>People stay in control</h3><p>Use AI to support decisions, with review points where the work calls for them.</p></article>
+          <article class="principle"><h3>Tools solve real tasks</h3><p>Start from a workflow that is slow or hard to inspect, then make it easier to act.</p></article>
         </div>
       </section>
 
-      <section class="section" id="interests" aria-labelledby="interests-title">
+      <section class="section" id="fpv" aria-labelledby="fpv-title">
         <div class="section-head">
-          <div><p class="eyebrow">Beyond work</p><h2 id="interests-title">Curiosity has range.</h2></div>
-          <p class="section-intro">A personal touch for conversation starters, kept distinct from professional qualifications.</p>
+          <div><p class="eyebrow">Beyond the day job</p><h2 id="fpv-title">I build for the hobbies I fly.</h2></div>
+          <p class="section-intro">FPV racing gives me a real-world problem to solve: turn hours of DVR footage into trustworthy lap data and a clip worth sharing.</p>
         </div>
-        <div class="interest-grid">
-          <article class="interest"><span class="interest-icon" aria-hidden="true">↗</span><div><h3>FPV</h3><p>First-person view flying</p></div></article>
-          <article class="interest"><span class="interest-icon" aria-hidden="true">♧</span><div><h3>Bridge</h3><p>Cards, partnership, and strategy</p></div></article>
-          <article class="interest"><span class="interest-icon" aria-hidden="true">♞</span><div><h3>Chess</h3><p>Pattern recognition and planning</p></div></article>
+        <div class="hobby-case">
+          <article class="hobby-copy">
+            <div>
+              <p class="eyebrow">FPV · Computer vision · Agent workflows</p>
+              <h3>Racegow: from raw DVR to a race-ready highlight.</h3>
+              <p>I built Racegow to find my fastest three consecutive clean laps across raw FPV recordings. It reads the on-screen timer, detects gate crossings, filters crashes and invalid laps, and exports a frame-accurate highlight.</p>
+              <p>The lap analysis is deterministic. I can ask an AI coding agent to run the tool, inspect its verification images, and help with the workflow; the timing and lap checks stay grounded in the video.</p>
+              <div class="metric"><strong>41.43s</strong><span>three consecutive laps · RaceGOW6 Track 2</span></div>
+            </div>
+            <a class="button" href="https://github.com/irom77/Racegow" target="_blank" rel="noreferrer">Explore Racegow <span aria-hidden="true">↗</span></a>
+          </article>
+          <div class="video-card">
+            <iframe src="https://www.youtube-nocookie.com/embed/GG7-ezzppak" title="Irek's RaceGOW6 Track 2 FPV run, with three consecutive laps timed by Racegow" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="video-caption"><strong>Flying, measuring, improving.</strong><span>HDZero DVR · Air65 · Best three consecutive laps timed with Racegow</span></div>
+          </div>
+        </div>
+        <div class="hobby-tools">
+          <article class="hobby-tool"><h3>FlightLens · FPV configuration analysis</h3><p>An offline Betaflight backup viewer that makes rates, filters, and configuration easier to inspect. Optional AI summaries use a reviewed structured digest; raw CLI text is not sent.</p><a href="https://github.com/irom77/FlightLens" target="_blank" rel="noreferrer">Explore FlightLens ↗</a></article>
+          <article class="hobby-tool"><h3>More than flying</h3><p>Bridge and chess bring another kind of problem solving: read the position, think ahead, and adapt to what changes.</p><a href="https://www.youtube.com/@niuk9290" target="_blank" rel="noreferrer">Watch my FPV channel ↗</a></article>
+        </div>
+        <div class="interests" aria-label="Personal interests"><span>FPV racing & freestyle</span><span>Bridge</span><span>Chess</span><span>AI-assisted building</span></div>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="section-head">
+          <div><p class="eyebrow">Experience</p><h2 id="experience-title">A career built around making systems safer.</h2></div>
+          <p class="section-intro">Security engineering, automation, network design, and audit have been connected threads throughout my work.</p>
+        </div>
+        <div class="experience-grid">
+          <div>
+            <p class="experience-lead"><strong>20+ years</strong> in automation and security roles across financial services, banking, business process outsourcing, manufacturing, lottery, and media environments.</p>
+            <div class="skill-list" aria-label="Areas of experience">
+              <span>Security engineering</span><span>Security automation</span><span>Vulnerability management</span><span>Incident response</span><span>Python</span><span>Splunk SOAR</span><span>Ansible</span><span>Azure & Terraform</span><span>Network security</span><span>Security audit</span>
+            </div>
+          </div>
+          <div class="timeline">
+            <article class="role"><time>2021 — now</time><div><h3>Senior Advisor, Cybersecurity · TransUnion</h3><p>Security engineering, automation, response, vulnerability and threat management, and AI-powered tools for security teams.</p></div></article>
+            <article class="role"><time>2019 — 2021</time><div><h3>Senior Security Automation Engineer · Advisor360</h3><p>Security orchestration with Ansible, Splunk, and Python; Azure infrastructure and Kubernetes.</p></div></article>
+            <article class="role"><time>2014 — 2019</time><div><h3>Senior Network Security & Automation Engineer · Commonwealth Financial Network</h3><p>Security automation and orchestration, firewall operations, and data-center migrations.</p></div></article>
+            <article class="role"><time>2005 — 2014</time><div><h3>Network Security Engineering & IT Audit</h3><p>Global network and firewall engineering, security architecture, control assessments, and compliance audits.</p></div></article>
+          </div>
         </div>
       </section>
 
       <section class="section" id="contact" aria-labelledby="contact-title">
-        <div class="cta">
-          <div><p class="eyebrow">Next step</p><h2 id="contact-title">Let’s talk about what’s next.</h2><p>Contact details and professional profile links will go here.</p></div>
-          <a class="button" href="#top">Contact link placeholder <span aria-hidden="true">↗</span></a>
+        <div class="contact">
+          <div><p class="eyebrow">Connect</p><h2 id="contact-title">Let’s make security work better.</h2><p>For security engineering, automation, or applied AI opportunities.</p></div>
+          <div class="socials">
+            <a href="https://linkedin.com/in/Romaniuk" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/irom77" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://www.youtube.com/@niuk9290" target="_blank" rel="noreferrer">YouTube ↗</a>
+          </div>
         </div>
       </section>
     </main>
-    <footer><span>© [Year] Your Name</span><span>Resume · LinkedIn · GitHub</span></footer>
+    <footer><span>© 2026 Irek Romaniuk</span><span>Cybersecurity · Automation · Applied AI · FPV</span></footer>
   </div>
 </body>
 </html>
