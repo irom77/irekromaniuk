@@ -2,7 +2,7 @@
 
 Public portfolio for sharing professional experience, selected independent projects, and personal interests with recruiters and hiring teams.
 
-**Live site:** [irom77.github.io/irekromaniuk](https://irom77.github.io/irekromaniuk/)
+**Live site:** [irek.romaniuk.us](https://irek.romaniuk.us/)
 
 ## Contents
 
