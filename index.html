@@ -101,6 +101,7 @@
     .experience-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 45px; }
     .experience-lead { color: var(--muted); font-size: 13px; }
     .experience-lead strong { color: var(--ink); }
+    .confidential-note { margin: 14px 0 0; padding: 14px; border-left: 3px solid var(--orange); background: #fffefa; color: #46595d; font-size: 11px; }
     .timeline { display: grid; gap: 0; }
     .role { display: grid; grid-template-columns: 115px 1fr; gap: 18px; padding: 16px 0; border-top: 1px solid var(--line); }
     .role time { color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: .05em; }
@@ -184,7 +185,7 @@
       <section class="section" id="work" aria-labelledby="work-title">
         <div class="section-head">
           <div><p class="eyebrow">Selected projects</p><h2 id="work-title">Applied AI, grounded in practice.</h2></div>
-          <p class="section-intro">A selection of recent work across AI-assisted security operations, secure AI, and automation. Each project links to its source and current scope.</p>
+          <p class="section-intro">A selection of independent work across AI-assisted security operations, small-model training, and automation. Each project links to its source.</p>
         </div>
         <div class="project-grid">
           <article class="project">
@@ -193,19 +194,19 @@
             <a class="project-link" href="https://github.com/irom77/soc-analyst" target="_blank" rel="noreferrer">View the case analyzer <span aria-hidden="true">↗</span></a>
           </article>
           <article class="project">
-            <div class="project-meta"><span>AI · Security engineering</span><span>LLM security</span></div>
-            <div><h3>AI Security Projects</h3><p>A hands-on portfolio lab for testing AI systems and documenting attack, control, and retest. The automated red-teaming lab is complete; additional labs are marked as planned in the repository.</p></div>
-            <a class="project-link" href="https://github.com/irom77/AI-Security-Projects" target="_blank" rel="noreferrer">Explore the project lab <span aria-hidden="true">↗</span></a>
-          </article>
-          <article class="project">
             <div class="project-meta"><span>AI · Personal productivity</span><span>JavaScript</span></div>
             <div><h3>JobMatchAI</h3><p>An AI-assisted job discovery workflow that evaluates public job postings against a profile and records results in Google Sheets.</p></div>
             <a class="project-link" href="https://github.com/irom77/JobMatchAI" target="_blank" rel="noreferrer">View JobMatchAI on GitHub <span aria-hidden="true">↗</span></a>
           </article>
           <article class="project">
-            <div class="project-meta"><span>AI · Security operations</span><span>Agent workflows</span></div>
-            <div><h3>Agentic SOC</h3><p>Exploring how LLMs and agents can support alert triage, case investigation, enrichment, and analyst workflows alongside traditional security operations.</p></div>
-            <a class="project-link" href="https://github.com/irom77/agentic-soc" target="_blank" rel="noreferrer">See the Agentic SOC repo <span aria-hidden="true">↗</span></a>
+            <div class="project-meta"><span>AI · Mini project</span><span>Model training</span></div>
+            <div><h3>NanoChat</h3><p>A small-model experiment: pre-trained and fine-tuned a 286M-parameter GPT-2-grade model, with training notes and experiment results in the repo.</p></div>
+            <a class="project-link" href="https://github.com/irom77/nanochat" target="_blank" rel="noreferrer">Explore the NanoChat project <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="project">
+            <div class="project-meta"><span>AI · Mini project</span><span>Fine-tuning</span></div>
+            <div><h3>Fine-tuning LLMs Lab</h3><p>A hands-on small-model lab covering supervised fine-tuning with LoRA, jailbreak evaluation, and preparing preference data for DPO.</p></div>
+            <a class="project-link" href="https://github.com/irom77/fine-tuning-llms" target="_blank" rel="noreferrer">See the fine-tuning lab <span aria-hidden="true">↗</span></a>
           </article>
         </div>
         <div class="principles" aria-label="Project principles">
@@ -251,6 +252,7 @@
         <div class="experience-grid">
           <div>
             <p class="experience-lead"><strong>20+ years</strong> in automation and security roles across financial services, banking, business process outsourcing, manufacturing, lottery, and media environments.</p>
+            <p class="confidential-note">At work, I handle complex security incident and vulnerability management projects. That work is internal and can’t be shared publicly, so this portfolio focuses on independent projects that show how I approach similar challenges.</p>
             <div class="skill-list" aria-label="Areas of experience">
               <span>Security engineering</span><span>Security automation</span><span>Vulnerability management</span><span>Incident response</span><span>Python</span><span>Splunk SOAR</span><span>Ansible</span><span>Azure & Terraform</span><span>Network security</span><span>Security audit</span>
             </div>
