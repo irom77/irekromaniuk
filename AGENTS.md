@@ -5,3 +5,4 @@
 - Feature original projects and experiments. Do not present forks as Irek's own work.
 - Keep edits small and consistent with the existing single-page site. Preserve working GitHub Pages links and deployment setup.
 - Before publishing, review the changed page for accuracy, working links, and accidental private information.
+- Use the brainstorming skill only when Irek directly asks for brainstorming or explicitly invokes that skill. For other requests, proceed with the requested research, plan, or implementation without invoking brainstorming.
