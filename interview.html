@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Irek Romaniuk — reviewed interview answers on security automation, incident response, applied AI, and network security.">
+  <meta name="theme-color" content="#f4f2eb">
+  <title>Interview Answers — Irek Romaniuk</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #152b32;
+      --muted: #53666a;
+      --paper: #f4f2eb;
+      --white: #fffefa;
+      --line: #d7ddd5;
+      --green: #22564c;
+      --lime: #d5ec98;
+      --orange: #d7774f;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.55; }
+    a { color: inherit; }
+    a:hover { color: var(--green); }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+    .topline { padding: 9px 20px; color: #f4f2eb; background: var(--green); text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 21px; border-bottom: 1px solid var(--line); }
+    .wordmark { font-weight: 780; letter-spacing: -.045em; text-decoration: none; }
+    .wordmark span { color: var(--orange); }
+    nav { display: flex; gap: 24px; color: var(--muted); font-size: 12px; }
+    nav a { text-decoration: none; }
+    .eyebrow { margin: 0 0 13px; color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 760px; margin-bottom: 20px; font-family: var(--serif); font-size: clamp(40px, 6vw, 64px); font-weight: 400; letter-spacing: -.05em; line-height: 1.02; }
+    h2 { margin-bottom: 18px; font-family: var(--serif); font-size: clamp(28px, 3.4vw, 38px); font-weight: 400; letter-spacing: -.04em; line-height: 1.1; }
+    .intro { padding-block: 64px 40px; }
+    .lead { max-width: 640px; color: var(--muted); font-size: 15px; }
+    .note { max-width: 640px; margin: 18px 0 0; padding: 14px; border-left: 3px solid var(--orange); background: var(--white); color: #46595d; font-size: 12px; }
+    .meta { margin-top: 14px; color: var(--muted); font-size: 11px; }
+    .track { padding-block: 40px; border-top: 1px solid var(--line); }
+    .answers { display: grid; gap: 10px; }
+    details { border: 1px solid var(--line); background: var(--white); }
+    summary { padding: 18px 20px; cursor: pointer; list-style-position: inside; }
+    summary h3 { display: inline; font-family: var(--serif); font-size: 21px; font-weight: 400; letter-spacing: -.02em; }
+    summary p { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+    .answer { padding: 0 20px 20px; font-size: 14px; }
+    .answer p { max-width: 720px; }
+    .answer .label { display: block; margin-bottom: 2px; color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .answer .links { display: flex; flex-wrap: wrap; gap: 14px; margin: 0; font-size: 12px; font-weight: 750; }
+    .answer .links a { color: var(--green); text-decoration: none; }
+    .answer .links a:hover { text-decoration: underline; }
+    .method { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .method a { color: var(--green); font-weight: 750; }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 23px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+    :focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 32px, 570px); }
+      header { align-items: flex-start; flex-direction: column; gap: 14px; }
+      nav { flex-wrap: wrap; gap: 12px 18px; }
+      .intro { padding-block: 44px 28px; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <div class="topline">Cybersecurity · Automation · Applied AI</div>
+  <div class="wrap">
+    <header>
+      <a class="wordmark" href="index.html">IREK ROMANIUK<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="index.html#work">Selected work</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="interview.html" aria-current="page">Interview</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Interview answers</p>
+        <h1 id="page-title">How I answer common interview questions.</h1>
+        <p class="lead">Answers to questions recruiters and hiring managers often ask, in my own words. Open a question to read the full answer.</p>
+        <p class="note">Each answer is reviewed for public sharing. Employers aren’t named, and confidential work is described only at a high level.</p>
+        <p class="meta">Last reviewed: <time datetime="2026-10-22">October 22, 2026</time></p>
+      </section>
+
+      <!-- TRACKS: one <section class="track"> per track that has at least one approved answer, in this order:
+           automation, response, applied-ai, foundations, core. Omit tracks with no answers. -->
+
+      <section class="track" id="automation" aria-labelledby="automation-title">
+        <p class="eyebrow">Track</p>
+        <h2 id="automation-title">Security automation &amp; orchestration</h2>
+        <div class="answers">
+          <details id="auto-first-playbook">
+            <summary><h3>Tell me about a security automation you designed and built.</h3><p>I designed and built an automated threat-response system that inserted firewall block rules in real time when security infraction rates crossed defined thresholds. It blocked threats every day with no recorded false positives.</p></summary>
+            <div class="answer">
+              <p><span class="label">Situation</span>In one role, our firewall rules were reactive. They were added ad hoc or pulled from static public blocklists, and updates were infrequent, which left us blind to new, active threat actors. The firewall was already classifying security events; it just had no dynamic enforcement.</p>
+              <p><span class="label">Action</span>I owned the whole initiative. I set the infraction velocity thresholds, designed the pipeline, and wrote the automation code from scratch to insert block rules in real time. Instead of relying on outside threat feeds, it acted on the firewall's own event classification, so it responded to what attackers were actually doing against us.</p>
+              <p><span class="label">Result</span>Day-to-day metrics showed it actively dropping threats every day, and we never recorded a single false positive. It was effective enough that authorized penetration tests had to be explicitly allowlisted before they could run.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="method" aria-label="How these answers were produced">
+        <p>How these answers were produced: drafted from interviews using a <a href="https://github.com/irom77/irekromaniuk/tree/main/.agents/skills/portfolio-interview" target="_blank" rel="noreferrer">public interview skill ↗</a>, then reviewed and approved by me before publishing.</p>
+      </section>
+    </main>
+    <footer><span>© 2026 Irek Romaniuk</span><span>Cybersecurity · Automation · Applied AI · FPV</span></footer>
+  </div>
+</body>
+</html>
