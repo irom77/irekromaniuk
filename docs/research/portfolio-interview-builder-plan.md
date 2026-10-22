@@ -47,9 +47,9 @@ The repository is public and GitHub Pages currently publishes the whole reposito
 
 - Keep the skill in this repository so it works in both Codex and Claude Code:
   - Canonical location: `.agents/skills/portfolio-interview/SKILL.md`, which Codex scans from the repository root.
-  - Claude Code: `.claude/skills/portfolio-interview` as a symlink to the canonical folder, so there is one copy to maintain. Verify that Claude Code loads the symlinked skill; if it doesn't, keep a copy and add a check that the two match.
+  - Claude Code: `.claude/skills/portfolio-interview` as a symlink to the canonical folder, so there is one copy to maintain. Both Claude Code and Codex were confirmed to load the skill on 2026-10-22.
   - Frontmatter uses only `name` and `description`, which both tools support. Keep the body free of tool-specific instructions, or put them in clearly labeled sections.
-- `SKILL.md` contains the role tracks, question bank, answer format, sensitivity and employer rules, `[CONFIRM]` convention, and review checklist. It is tailored to Irek and is not presented as a general-purpose tool.
+- `SKILL.md` contains the modes, answer format, sensitivity and employer rules, `[CONFIRM]` convention, and review checklist. `question-bank.md` holds the questions by track, and `interview-page-template.html` is the starting point for `interview.html`, created on first publish. It is tailored to Irek and is not presented as a general-purpose tool.
 - `SKILL.md` contains no real interview content; any examples are made up.
 - The skill is public: it is committed to this public repository, and `interview.html` links to it as "How these answers were produced", which shows the review process behind the answers. Because it is public, it must contain only the method (questions, rules, checklist) and never interview content.
 - The skill's output for publishing is a ready-to-paste `<details>` block for `interview.html`, plus any suggested updates to existing portfolio text (for example a new skill or project mention), each listed separately for Irek to approve.
@@ -89,7 +89,7 @@ The repository is public and GitHub Pages currently publishes the whole reposito
 
 ## First milestone
 
-1. Create the private working directory and write `SKILL.md`: tracks, question bank, answer format, sensitivity and employer rules, `[CONFIRM]` convention, and review checklist. Add the Claude Code symlink and confirm the skill loads in both Codex and Claude Code.
+1. **Done 2026-10-22.** Create the private working directory and write `SKILL.md`: tracks, question bank, answer format, sensitivity and employer rules, `[CONFIRM]` convention, and review checklist. Add the Claude Code symlink and confirm the skill loads in both Codex and Claude Code.
 2. Run a real session on one track, ideally security automation, which has the most public evidence. Note repetitive questions and missing evidence in the private session notes.
 3. Revise the skill based on that session.
 4. Done when one session yields at least three answers that Irek approves, with no `[CONFIRM]` markers and every detail classified.
