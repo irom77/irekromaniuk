@@ -60,6 +60,8 @@ Page views are counted by [GoatCounter](https://irekromaniuk.goatcounter.com) (s
 - `click: <url>`: a click on a link to another site, such as LinkedIn or GitHub.
 - `answer: <id>`: an interview answer opened on `interview.html`.
 
+The footer shows the site's total visitor count from GoatCounter's public counter (`/counter/TOTAL.json`). This needs **Allow adding visitor counts on your website** turned on in GoatCounter's site settings; without it the count stays hidden. GoatCounter caches the number for up to four hours.
+
 Both pages have a canonical URL, Open Graph and Twitter tags, and `og-image.png` as the link preview image. `index.html` also has schema.org `Person` data. If you add a page, add these tags and the two analytics `<script>` lines before `</body>`, list the page in `sitemap.xml`, and update its `lastmod` dates.
 
 ## Editing
