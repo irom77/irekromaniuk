@@ -5,7 +5,7 @@
 - [x] Publish the approved interview answer (`auto-first-playbook`, security automation): run `/portfolio-interview publish` (or `$portfolio-interview publish`), check `interview.html` and the new `index.html` link locally, then commit and push.
 - [x] Analytics: sign up at [goatcounter.com](https://www.goatcounter.com/signup) with the site code `irekromaniuk`, so the dashboard is `https://irekromaniuk.goatcounter.com`. A different code also means updating `data-goatcounter` in `index.html` and `interview.html`.
 - [x] Add `irek.romaniuk.us` to [Google Search Console](https://search.google.com/search-console) as a Domain property. Done 2026-10-23; it was verified through the domain name provider, so don't remove that DNS record.
-- [ ] After deploying, submit `https://irek.romaniuk.us/sitemap.xml` in Search Console > Sitemaps.
+- [x] Submit `https://irek.romaniuk.us/sitemap.xml` in Search Console > Sitemaps. Done 2026-10-23.
 - [ ] Add the site to [Bing Webmaster Tools](https://www.bing.com/webmasters) with **Import from Google Search Console**.
 - [ ] Put `https://irek.romaniuk.us/` in the LinkedIn Contact info / Featured section, the GitHub profile website field, and the YouTube channel links.
 - [ ] After deploying, check the link preview with the [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/).
