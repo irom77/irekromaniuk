@@ -8,7 +8,7 @@ Public portfolio for sharing professional experience, selected independent proje
 
 - `index.html` — the responsive, single-page portfolio.
 - `analytics.js` — GoatCounter events for outbound link clicks and opened interview answers.
-- `youtube.js`, `youtube-channels.json`, `scripts/update_youtube.py`, `.github/workflows/update-youtube.yml` — the automatically updated "Channels I learn from" section.
+- `youtube.js`, `youtube-channels.json`, `scripts/update_youtube.py`, `scripts/watched_channels.py`, `.github/workflows/update-youtube.yml` — the automatically updated "Channels I learn from" section.
 - `og-image.png`, `robots.txt`, `sitemap.xml` — social preview image and search engine files. `docs/og-image.html` is the source for the image.
 - `.github/workflows/deploy-pages.yml` — publishes the site to GitHub Pages.
 - `AGENTS.md` — guidance for future edits to this repository.
@@ -56,7 +56,7 @@ Raw notes are never published. Publishing copies the approved text from `drafts/
 
 ## YouTube channels
 
-The **Channels I learn from** section in `index.html` lists YouTube channels Irek subscribes to, each with its latest video. Each video shows as a thumbnail and plays in place when clicked (`youtube.js`), so the page doesn't load a dozen players at once. Clicks are recorded in GoatCounter as `video: <id>`.
+The **Channels I learn from** section in `index.html` lists YouTube channels on Irek's topics that he subscribes to and has watched in the last 90 days, with recent videos and the full channel list. The intro sentence is generated too: it names only the topics that have channels, and mentions the 90-day window once watch history is applied. Each video shows as a thumbnail and plays in place when clicked (`youtube.js`), so the page doesn't load a dozen players at once. Clicks are recorded in GoatCounter as `video: <id>`.
 
 **How it updates.** The **Update YouTube channels** workflow runs every Monday, and can be run manually from the Actions tab. It runs `scripts/update_youtube.py`, which:
 
@@ -78,7 +78,7 @@ If the list changed, the workflow commits `index.html` and starts **Deploy to Gi
 **Recently watched channels only.** Google Takeout exports Irek's YouTube watch history every month (JSON or HTML; the YouTube API doesn't provide watch history). After each export, run:
 
 ```bash
-python3 scripts/watched_channels.py ~/Downloads/takeout-*.zip    # all parts of the export; --days N, default 90
+python3 scripts/watched_channels.py /mnt/c/Users/irekr/Downloads/takeout-*.zip    # all parts of the export; --days N, default 90
 ```
 
 It writes to `watched` in `youtube-channels.json` the IDs of channels watched in the last 90 days, keeping only topic-matching subscriptions (the channels the page shows), since the file is public. It reads subscriptions with the API key from `YT_API_KEY` or `~/.config/irekromaniuk/yt_api_key` (mode 600, outside the repository). Commit that change; from the next run on, only subscriptions on that list are shown. The export itself stays on your machine and is never added to the repository. Delete the `watched` key to show all matching subscriptions again.
@@ -119,6 +119,9 @@ To stop counting your own visits, open `https://irek.romaniuk.us/#toggle-goatcou
 | Google Search Console | Domain property `irek.romaniuk.us`, verified through the domain name provider; `sitemap.xml` submitted | Removing the verification DNS record loses verification. |
 | Bing Webmaster Tools | Imported from Google Search Console | Re-import if the Search Console property is recreated. |
 | LinkedIn, GitHub, YouTube | Profile links to `https://irek.romaniuk.us/` | Update them if the domain changes. |
+| YouTube (@irom77) | **Keep all my subscriptions private** off | With it on, the weekly update fails with `subscriptionForbidden` and the channel section stops updating. |
+| Google Cloud (project Clawdbot) | API key restricted to YouTube Data API v3, stored as the `YT_API_KEY` repository secret and in `~/.config/irekromaniuk/yt_api_key` | If the key is deleted or rotated, update both places. |
+| Google Takeout | Monthly export of YouTube history (only **history** is needed) | Without new exports the `watched` list goes stale; run `scripts/watched_channels.py` after each one. |
 
 **Updating the preview image.** Edit `docs/og-image.html`, then render it at 1200×630 with headless Chrome or Chromium:
 
