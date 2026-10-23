@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /docs/
+Disallow: /.agents/
+Disallow: /.claude/
+
+Sitemap: https://irek.romaniuk.us/sitemap.xml
