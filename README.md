@@ -8,7 +8,7 @@ Public portfolio for sharing professional experience, selected independent proje
 
 - `index.html` — the responsive, single-page portfolio.
 - `analytics.js` — GoatCounter events for outbound link clicks and opened interview answers.
-- `og-image.png`, `robots.txt`, `sitemap.xml` — social preview image and search engine files.
+- `og-image.png`, `robots.txt`, `sitemap.xml` — social preview image and search engine files. `docs/og-image.html` is the source for the image.
 - `.github/workflows/deploy-pages.yml` — publishes the site to GitHub Pages.
 - `AGENTS.md` — guidance for future edits to this repository.
 - `.agents/skills/portfolio-interview/` — the interview skill that produces the reviewed answers for `interview.html` (linked for Claude Code from `.claude/skills/portfolio-interview`).
@@ -63,6 +63,31 @@ Page views are counted by [GoatCounter](https://irekromaniuk.goatcounter.com) (s
 The footer shows the site's total visitor count from GoatCounter's public counter (`/counter/TOTAL.json`). This needs **Allow adding visitor counts on your website** turned on in GoatCounter's site settings; without it the count stays hidden. GoatCounter caches the number for up to four hours.
 
 Both pages have a canonical URL, Open Graph and Twitter tags, and `og-image.png` as the link preview image. `index.html` also has schema.org `Person` data. If you add a page, add these tags and the two analytics `<script>` lines before `</body>`, list the page in `sitemap.xml`, and update its `lastmod` dates.
+
+**Where to see the numbers**
+
+- [GoatCounter dashboard](https://irekromaniuk.goatcounter.com): visitors per page, referrers, countries, devices, and the `click:` and `answer:` events.
+- [Google Search Console](https://search.google.com/search-console), **Performance**: how often the site appears in Google results, clicks, and the searches that show it.
+- [Bing Webmaster Tools](https://www.bing.com/webmasters): the same for Bing (which also covers DuckDuckGo).
+
+To stop counting your own visits, open `https://irek.romaniuk.us/#toggle-goatcounter` once in each browser you use.
+
+**External settings the site depends on**
+
+| Service | Setting | If it changes |
+| --- | --- | --- |
+| GoatCounter | Site code `irekromaniuk`; **Your site** set to `irek.romaniuk.us`; **Allow adding visitor counts on your website** on | A new code means updating `data-goatcounter` in both pages and the URL in `analytics.js`. With visitor counts off, the footer count is hidden. |
+| Google Search Console | Domain property `irek.romaniuk.us`, verified through the domain name provider; `sitemap.xml` submitted | Removing the verification DNS record loses verification. |
+| Bing Webmaster Tools | Imported from Google Search Console | Re-import if the Search Console property is recreated. |
+| LinkedIn, GitHub, YouTube | Profile links to `https://irek.romaniuk.us/` | Update them if the domain changes. |
+
+**Updating the preview image.** Edit `docs/og-image.html`, then render it at 1200×630 with headless Chrome or Chromium:
+
+```bash
+chrome --headless=new --hide-scrollbars --window-size=1200,630 --screenshot=og-image.png "file://$PWD/docs/og-image.html"
+```
+
+After deploying, run the URL through the [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/) to refresh LinkedIn's cached preview.
 
 ## Editing
 
