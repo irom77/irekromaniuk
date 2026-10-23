@@ -10,4 +10,4 @@
 - [x] Put `https://irek.romaniuk.us/` in the LinkedIn Contact info / Featured section.
 - [x] Put `https://irek.romaniuk.us/` in the YouTube channel links. Done 2026-10-23.
 - [x] Put `https://irek.romaniuk.us/` in the GitHub profile website field. Done 2026-10-23.
-- [ ] After deploying, check the link preview with the [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/).
+- [x] Check the link preview with the [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/). Done 2026-10-23.
