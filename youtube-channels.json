@@ -1,0 +1,98 @@
+{
+  "channel_id": "UCBoriY5wyxsxBh09ctbyvnw",
+  "max_channels": 24,
+  "max_video_age_days": 365,
+  "topics": {
+    "AI": [
+      "AI",
+      "artificial intelligence",
+      "machine learning",
+      "deep learning",
+      "LLM",
+      "LLMs",
+      "GPT",
+      "neural network",
+      "agents",
+      "Claude",
+      "OpenAI",
+      "Anthropic"
+    ],
+    "Security": [
+      "security",
+      "cybersecurity",
+      "cyber",
+      "infosec",
+      "hacking",
+      "hacker",
+      "hackers",
+      "pentest",
+      "penetration testing",
+      "malware",
+      "threat",
+      "CTF",
+      "exploit",
+      "SOC",
+      "incident response",
+      "privacy"
+    ],
+    "Network": [
+      "networking",
+      "Cisco",
+      "CCNA",
+      "firewall",
+      "routing",
+      "BGP",
+      "DNS",
+      "cloud",
+      "DevOps",
+      "Linux",
+      "Kubernetes",
+      "homelab",
+      "automation"
+    ]
+  },
+  "include": {
+    "UCXUPKJO5MZQN11PqgIvyuvQ": "AI",
+    "UCZgt6AzoyjslHTC9dz0UoTw": "Network",
+    "UCBgPdNVTE3uRgF3VIN0N2rg": "Network",
+    "UCX6NfnWUZKKMTj--8CZSm-w": "Network",
+    "UCI0vQvr9aFn27yR6Ej6n5UA": "AI",
+    "UC0m-80FnNY2Qb7obvTL_2fA": "Network",
+    "UC3wSVdxaLnELiinVnBgxpHw": "Security"
+  },
+  "exclude": [
+    "UCmxRh3CobqeOHzN-L15fNrg",
+    "UCExDLAWQ5eL3Vc816rC_pTg"
+  ],
+  "watched": {
+    "days": 90,
+    "updated": "2026-10-23",
+    "channels": [
+      "UC0C-17n9iuUQPylguM1d-lQ",
+      "UC22cR5ZC9yhhuHAogUgSzTQ",
+      "UC4EUQtTxeC8wGrKRafI6pZg",
+      "UC55ODQSvARtgSyc8ThfiepQ",
+      "UC8wZnXYK_CGKlBcZp-GxYPA",
+      "UCIgnGlGkVRhd4qNFcEwLL4A",
+      "UCKWaEZ-_VweaEx1j62do_vQ",
+      "UCMwVTLZIRRUyyVrkjDpn4pA",
+      "UCOXRjenlq9PmlTqd_JhAbMQ",
+      "UCP7WmQ_U4GB3K51Od9QvM0w",
+      "UCSWj8mqQCcrcBlXPi4ThRDQ",
+      "UCW5YeuERMmlnqo4oq8vwUpg",
+      "UCawZsQWqfGSbCI5yjkdVkTA",
+      "UCelfWQr9sXVMTvBzviPGlFw",
+      "UCf4sXk66VuWGlg4Nh0tuCdA",
+      "UCn8ujwUInbJkBhffxqAPBVQ",
+      "UCnAqVRjQ1Gz-ZJqcTSnBCWA",
+      "UCqB1bhMwGsW-yefBxYwFCCg",
+      "UCqpacJgWdTXok-E8j7TCTPg",
+      "UCrnY0mjgFXhwzUus_a35WcA",
+      "UCswG6FSbgZjbWtdf_hMLaow",
+      "UCuU9jE4MHHEIyYMbDfUPSew",
+      "UCuWq8fmaomKtuvnyb_m0zLQ",
+      "UCvKRFNawVcuz4b9ihUTApCg",
+      "UCxVxcTULO9cFU6SB9qVaisQ"
+    ]
+  }
+}

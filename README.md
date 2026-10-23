@@ -8,6 +8,7 @@ Public portfolio for sharing professional experience, selected independent proje
 
 - `index.html` — the responsive, single-page portfolio.
 - `analytics.js` — GoatCounter events for outbound link clicks and opened interview answers.
+- `youtube.js`, `youtube-channels.json`, `scripts/update_youtube.py`, `.github/workflows/update-youtube.yml` — the automatically updated "Channels I learn from" section.
 - `og-image.png`, `robots.txt`, `sitemap.xml` — social preview image and search engine files. `docs/og-image.html` is the source for the image.
 - `.github/workflows/deploy-pages.yml` — publishes the site to GitHub Pages.
 - `AGENTS.md` — guidance for future edits to this repository.
@@ -52,6 +53,44 @@ Tracks: `security automation`, `incident response`, `applied AI`, `network cloud
 Raw notes are never published. Publishing copies the approved text from `drafts/` into `interview.html`; the answer becomes public when that change is committed and pushed.
 
 **Backup.** `~/portfolio-interview/` is not in git and has no backup by default. If the machine or WSL installation is lost, unpublished drafts and interview progress are lost too. To protect them, keep a copy somewhere private, for example a private Git repository or a cloud-synced folder. Never use this repository or any other public location.
+
+## YouTube channels
+
+The **Channels I learn from** section in `index.html` lists YouTube channels Irek subscribes to, each with its latest video. Each video shows as a thumbnail and plays in place when clicked (`youtube.js`), so the page doesn't load a dozen players at once. Clicks are recorded in GoatCounter as `video: <id>`.
+
+**How it updates.** The **Update YouTube channels** workflow runs every Monday, and can be run manually from the Actions tab. It runs `scripts/update_youtube.py`, which:
+
+1. Lists the subscriptions of channel `UCBoriY5wyxsxBh09ctbyvnw` (@irom77) through the YouTube Data API.
+2. Keeps channels whose name or description matches a word in one of the topics in `youtube-channels.json` (AI, Security, Network).
+3. Gets each channel's newest video from its public RSS feed. Shorts are skipped, and the feed uses no API quota.
+4. Rewrites the video cards between `<!-- youtube:start -->` and `<!-- youtube:end -->`: up to `max_channels` videos from the last `max_video_age_days`, taking turns between topics, newest first within each.
+5. Rewrites the full list of matching channels, grouped by topic, between `<!-- youtube-list:start -->` and `<!-- youtube-list:end -->`.
+
+If the list changed, the workflow commits `index.html` and starts **Deploy to GitHub Pages**. If the API call fails or nothing matches, the workflow fails and the page is left unchanged.
+
+**Tuning the list.** Edit `youtube-channels.json`:
+
+- `topics`: topic label → keywords (whole words, case-insensitive). The first matching topic is the card's label.
+- `include`: channel ID → topic, for channels to show even if no keyword matches (or to override the matched topic).
+- `exclude`: channel IDs to hide even if a keyword matches.
+- `max_channels`: how many video cards to show. `max_video_age_days`: channels with no video newer than this keep their place in the full list but get no card.
+
+**Recently watched channels only.** Google Takeout exports Irek's YouTube watch history every month (JSON or HTML; the YouTube API doesn't provide watch history). After each export, run:
+
+```bash
+python3 scripts/watched_channels.py ~/Downloads/takeout-*.zip    # all parts of the export; --days N, default 90
+```
+
+It writes to `watched` in `youtube-channels.json` the IDs of channels watched in the last 90 days, keeping only topic-matching subscriptions (the channels the page shows), since the file is public. It reads subscriptions with the API key from `YT_API_KEY` or `~/.config/irekromaniuk/yt_api_key` (mode 600, outside the repository). Commit that change; from the next run on, only subscriptions on that list are shown. The export itself stays on your machine and is never added to the repository. Delete the `watched` key to show all matching subscriptions again.
+
+**Credentials (one-time setup).** Use one of these, stored as repository secrets (**Settings → Secrets and variables → Actions**):
+
+| Option | Secrets | Notes |
+| --- | --- | --- |
+| API key (recommended) | `YT_API_KEY` | Needs your subscriptions to be public: YouTube **Settings → Privacy → Keep all my subscriptions private** off. Create the key in Google Cloud Console, enable **YouTube Data API v3**, and restrict the key to that API. The key doesn't expire. |
+| OAuth | `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN` | Subscriptions can stay private. Use a token with only the `youtube.readonly` scope, never the upload token. While the OAuth app is in **Testing** mode, Google expires refresh tokens after 7 days, so the app must be set to **In production**. |
+
+To run it locally: `YT_API_KEY=... python3 scripts/update_youtube.py`.
 
 ## Visibility and analytics
 

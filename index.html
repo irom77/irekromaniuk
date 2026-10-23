@@ -120,6 +120,27 @@
     .hobby-tool h3 { margin: 0 0 6px; font-size: 13px; }
     .hobby-tool p { margin: 0 0 9px; color: var(--muted); font-size: 11px; }
     .hobby-tool a { color: var(--green); font-size: 10px; font-weight: 750; text-decoration: none; }
+    .channel-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .channel-grid:empty::before { content: "The channel list refreshes weekly."; color: var(--muted); font-size: 12px; }
+    .channel { display: flex; flex-direction: column; border: 1px solid var(--line); background: var(--white); }
+    .yt-embed { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; overflow: hidden; border: 0; background: #111c1f; cursor: pointer; }
+    .yt-embed img { width: 100%; height: 100%; object-fit: cover; }
+    .channel > iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; }
+    .yt-play { position: absolute; inset: 50% auto auto 50%; display: grid; width: 38px; height: 38px; place-items: center; border-radius: 50%; background: var(--green); color: var(--lime); font-size: 13px; transform: translate(-50%, -50%); }
+    .yt-embed:hover .yt-play { background: var(--orange); color: #fff; }
+    .channel-copy { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 11px 12px 12px; }
+    .channel-copy .project-meta { font-size: 9px; }
+    .channel-copy h3 { display: -webkit-box; margin: 8px 0; overflow: hidden; font-size: 12px; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+    .channel-copy .project-link { font-size: 10px; }
+    .channel-copy .project-link { margin-top: auto; }
+    .channel-list { margin-top: 26px; border-top: 1px solid var(--line); }
+    .channel-list > summary { padding: 16px 0; color: var(--green); font-size: 12px; font-weight: 750; cursor: pointer; }
+    .channel-group { display: grid; grid-template-columns: 150px 1fr; gap: 18px; padding: 14px 0; border-top: 1px solid var(--line); }
+    .channel-group h3 { margin: 0; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--green); }
+    .channel-group h3 span { color: var(--muted); font-weight: 600; }
+    .channel-group p { display: flex; flex-wrap: wrap; gap: 7px; margin: 0; }
+    .channel-group a { padding: 5px 10px; border: 1px solid var(--line); background: var(--white); color: #35554c; font-size: 11px; font-weight: 650; text-decoration: none; }
+    .channel-group a:hover { border-color: var(--green); color: var(--green); }
     .interests { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 19px; }
     .interests span { padding: 8px 12px; border: 1px solid #94a69a; border-radius: 100px; color: #455a51; font-size: 11px; font-weight: 700; }
     .experience-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 45px; }
@@ -142,6 +163,7 @@
     .socials a:hover { background: #e7f5c4; }
     footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 23px; color: var(--muted); font-size: 10px; }
     :focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+    @media (max-width: 1000px) { .channel-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 760px) {
       .wrap { width: min(100% - 32px, 570px); }
       header { align-items: flex-start; flex-direction: column; gap: 14px; }
@@ -151,6 +173,7 @@
       .section { padding-block: 48px; }
       .section-head { align-items: flex-start; flex-direction: column; }
       .project-grid, .hobby-case, .experience-grid { grid-template-columns: 1fr; }
+      .channel-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .project { min-height: 205px; }
       .principles { grid-template-columns: 1fr; }
       .experience-grid { gap: 18px; }
@@ -159,6 +182,7 @@
     }
     @media (max-width: 450px) {
       .role { grid-template-columns: 86px 1fr; gap: 12px; }
+      .channel-group { grid-template-columns: 1fr; gap: 9px; }
       .hobby-tools { grid-template-columns: 1fr; }
       .visual-foot { font-size: 8px; }
     }
@@ -173,6 +197,7 @@
       <nav aria-label="Main navigation">
         <a href="#work">Selected work</a>
         <a href="#fpv">AI + FPV</a>
+        <a href="#learning">Learning</a>
         <a href="#experience">Experience</a>
         <a href="interview.html">Interview</a>
         <a href="#contact">Contact</a>
@@ -270,6 +295,286 @@
         <div class="interests" aria-label="Personal interests"><span>FPV racing & freestyle</span><span>Bridge with family</span><span>Chess with family</span><span>AI-assisted building</span></div>
       </section>
 
+      <section class="section" id="learning" aria-labelledby="learning-title">
+        <div class="section-head">
+          <div><p class="eyebrow">Always learning</p><h2 id="learning-title">Channels I learn from.</h2></div>
+          <p class="section-intro"><!-- youtube-note:start -->YouTube channels on AI and security that I subscribe to and have watched in the last 90 days, with a recent video from each topic and the full list below. It updates automatically every week.<!-- youtube-note:end --></p>
+        </div>
+        <div class="channel-grid"><!-- youtube:start -->
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="7fZ1rFcm1nA" data-title="Team AMA (and Kimi K3.1 Testing!!)" aria-label="Play: Team AMA (and Kimi K3.1 Testing!!)">
+              <img src="https://i.ytimg.com/vi/7fZ1rFcm1nA/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-23">2026-10-23</time></div>
+              <h3>Team AMA (and Kimi K3.1 Testing!!)</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCawZsQWqfGSbCI5yjkdVkTA" target="_blank" rel="noreferrer">Matthew Berman <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="KU2UONdNl1Y" data-title="Your Phone Can Connect to a Fake Cell Tower" aria-label="Play: Your Phone Can Connect to a Fake Cell Tower">
+              <img src="https://i.ytimg.com/vi/KU2UONdNl1Y/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>Security</span><time datetime="2026-10-23">2026-10-23</time></div>
+              <h3>Your Phone Can Connect to a Fake Cell Tower</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCP7WmQ_U4GB3K51Od9QvM0w" target="_blank" rel="noreferrer">David Bombal <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="yF5EGEKA_B4" data-title="JetBrains Built an IDE Around the Pi Coding Agent (ThinkRail)" aria-label="Play: JetBrains Built an IDE Around the Pi Coding Agent (ThinkRail)">
+              <img src="https://i.ytimg.com/vi/yF5EGEKA_B4/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-23">2026-10-23</time></div>
+              <h3>JetBrains Built an IDE Around the Pi Coding Agent (ThinkRail)</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UC8wZnXYK_CGKlBcZp-GxYPA" target="_blank" rel="noreferrer">NeuralNine <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="tVt907vMIqw" data-title="The Internet is HACKED!!! (PHP2Shell explained)" aria-label="Play: The Internet is HACKED!!! (PHP2Shell explained)">
+              <img src="https://i.ytimg.com/vi/tVt907vMIqw/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>Security</span><time datetime="2026-10-22">2026-10-22</time></div>
+              <h3>The Internet is HACKED!!! (PHP2Shell explained)</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCnAqVRjQ1Gz-ZJqcTSnBCWA" target="_blank" rel="noreferrer">The Social Dork | Cyber Security <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="WAs0KNGeoTs" data-title="How Do Robots Actually Work?" aria-label="Play: How Do Robots Actually Work?">
+              <img src="https://i.ytimg.com/vi/WAs0KNGeoTs/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-23">2026-10-23</time></div>
+              <h3>How Do Robots Actually Work?</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCSWj8mqQCcrcBlXPi4ThRDQ" target="_blank" rel="noreferrer">KodeKloud <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="olJPnA2luGo" data-title="User Behavior Analytics for Wazuh: Deploy SOCFortress UBA + CoPilot" aria-label="Play: User Behavior Analytics for Wazuh: Deploy SOCFortress UBA + CoPilot">
+              <img src="https://i.ytimg.com/vi/olJPnA2luGo/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>Security</span><time datetime="2026-10-10">2026-10-10</time></div>
+              <h3>User Behavior Analytics for Wazuh: Deploy SOCFortress UBA + CoPilot</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UC4EUQtTxeC8wGrKRafI6pZg" target="_blank" rel="noreferrer">Taylor Walton <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="wenRfKnkE_Y" data-title="Exploring Hermes Plugins: REA and Meshy" aria-label="Play: Exploring Hermes Plugins: REA and Meshy">
+              <img src="https://i.ytimg.com/vi/wenRfKnkE_Y/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-23">2026-10-23</time></div>
+              <h3>Exploring Hermes Plugins: REA and Meshy</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCqB1bhMwGsW-yefBxYwFCCg" target="_blank" rel="noreferrer">Tonbi&#x27;s AI Garage <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="tNKmMhiOw9w" data-title="Run Your AI Software Factory Like a Real Engineering Org (Here&#x27;s How)" aria-label="Play: Run Your AI Software Factory Like a Real Engineering Org (Here&#x27;s How)">
+              <img src="https://i.ytimg.com/vi/tNKmMhiOw9w/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-23">2026-10-23</time></div>
+              <h3>Run Your AI Software Factory Like a Real Engineering Org (Here&#x27;s How)</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCMwVTLZIRRUyyVrkjDpn4pA" target="_blank" rel="noreferrer">Cole Medin <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="BsfjQDSeTwI" data-title="Flint - The First RSI Coding Model?" aria-label="Play: Flint - The First RSI Coding Model?">
+              <img src="https://i.ytimg.com/vi/BsfjQDSeTwI/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-23">2026-10-23</time></div>
+              <h3>Flint - The First RSI Coding Model?</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UC55ODQSvARtgSyc8ThfiepQ" target="_blank" rel="noreferrer">Sam Witteveen <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="UZ0WYh6O4ug" data-title="How Fast Will the AI Transition Really Be?" aria-label="Play: How Fast Will the AI Transition Really Be?">
+              <img src="https://i.ytimg.com/vi/UZ0WYh6O4ug/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-23">2026-10-23</time></div>
+              <h3>How Fast Will the AI Transition Really Be?</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCvKRFNawVcuz4b9ihUTApCg" target="_blank" rel="noreferrer">David Shapiro <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="WLhh5FeLpy0" data-title="Self-replicating AI, your doctor’s chatbot &amp; agents at dinner" aria-label="Play: Self-replicating AI, your doctor’s chatbot &amp; agents at dinner">
+              <img src="https://i.ytimg.com/vi/WLhh5FeLpy0/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-23">2026-10-23</time></div>
+              <h3>Self-replicating AI, your doctor’s chatbot &amp; agents at dinner</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCKWaEZ-_VweaEx1j62do_vQ" target="_blank" rel="noreferrer">IBM Technology <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="KOVLuSt8u-A" data-title="Can an AI Beat Humans at Improving AI? (RSI)" aria-label="Play: Can an AI Beat Humans at Improving AI? (RSI)">
+              <img src="https://i.ytimg.com/vi/KOVLuSt8u-A/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-23">2026-10-23</time></div>
+              <h3>Can an AI Beat Humans at Improving AI? (RSI)</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCf4sXk66VuWGlg4Nh0tuCdA" target="_blank" rel="noreferrer">Devsplainers <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="6VmA4x1lh1M" data-title="PHP security crisis explained.." aria-label="Play: PHP security crisis explained..">
+              <img src="https://i.ytimg.com/vi/6VmA4x1lh1M/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-23">2026-10-23</time></div>
+              <h3>PHP security crisis explained..</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCuU9jE4MHHEIyYMbDfUPSew" target="_blank" rel="noreferrer">Caleb Writes Code <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="1Aqhg0FVm-w" data-title="Deepseek strikes again" aria-label="Play: Deepseek strikes again">
+              <img src="https://i.ytimg.com/vi/1Aqhg0FVm-w/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-23">2026-10-23</time></div>
+              <h3>Deepseek strikes again</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCIgnGlGkVRhd4qNFcEwLL4A" target="_blank" rel="noreferrer">AI Search <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="2Vscrsz89MY" data-title="7 GrokBot Agents to Run 95% of Your Life" aria-label="Play: 7 GrokBot Agents to Run 95% of Your Life">
+              <img src="https://i.ytimg.com/vi/2Vscrsz89MY/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-22">2026-10-22</time></div>
+              <h3>7 GrokBot Agents to Run 95% of Your Life</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCxVxcTULO9cFU6SB9qVaisQ" target="_blank" rel="noreferrer">Jack Roberts <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="15gxN8DnC8s" data-title="I Read Goodfire&#x27;s New Essay. AI May Be Far Easier To Understand Than We Thought." aria-label="Play: I Read Goodfire&#x27;s New Essay. AI May Be Far Easier To Understand Than We Thought.">
+              <img src="https://i.ytimg.com/vi/15gxN8DnC8s/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-22">2026-10-22</time></div>
+              <h3>I Read Goodfire&#x27;s New Essay. AI May Be Far Easier To Understand Than We Thought.</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UC0C-17n9iuUQPylguM1d-lQ" target="_blank" rel="noreferrer">AI News &amp; Strategy Daily | Nate B Jones <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="PmvwgDxaFSc" data-title="How to Build an AI Security SWAT Team | Caleb Sima &amp; Ashish Rajan" aria-label="Play: How to Build an AI Security SWAT Team | Caleb Sima &amp; Ashish Rajan">
+              <img src="https://i.ytimg.com/vi/PmvwgDxaFSc/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-21">2026-10-21</time></div>
+              <h3>How to Build an AI Security SWAT Team | Caleb Sima &amp; Ashish Rajan</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCuWq8fmaomKtuvnyb_m0zLQ" target="_blank" rel="noreferrer">AI Security Podcast <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="92ZDgn8bgLM" data-title="Anthropic Just Revealed How Their Engineers Use Claude Code" aria-label="Play: Anthropic Just Revealed How Their Engineers Use Claude Code">
+              <img src="https://i.ytimg.com/vi/92ZDgn8bgLM/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-21">2026-10-21</time></div>
+              <h3>Anthropic Just Revealed How Their Engineers Use Claude Code</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCelfWQr9sXVMTvBzviPGlFw" target="_blank" rel="noreferrer">AI LABS <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="VTowX1wzY0w" data-title="I Found a $44 Leak in My Claude Code Usage" aria-label="Play: I Found a $44 Leak in My Claude Code Usage">
+              <img src="https://i.ytimg.com/vi/VTowX1wzY0w/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-21">2026-10-21</time></div>
+              <h3>I Found a $44 Leak in My Claude Code Usage</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCOXRjenlq9PmlTqd_JhAbMQ" target="_blank" rel="noreferrer">Eric Tech <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="UwrZJpjWjdI" data-title="Answering your questions about AI, agents, and tech jobs (Q&amp;A)" aria-label="Play: Answering your questions about AI, agents, and tech jobs (Q&amp;A)">
+              <img src="https://i.ytimg.com/vi/UwrZJpjWjdI/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-20">2026-10-20</time></div>
+              <h3>Answering your questions about AI, agents, and tech jobs (Q&amp;A)</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCn8ujwUInbJkBhffxqAPBVQ" target="_blank" rel="noreferrer">Dave Ebbelaar <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="nML0s5FPP6U" data-title="You&#x27;re Sitting On Data That Tells You Exactly What To Do Next (How To Find It)" aria-label="Play: You&#x27;re Sitting On Data That Tells You Exactly What To Do Next (How To Find It)">
+              <img src="https://i.ytimg.com/vi/nML0s5FPP6U/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-17">2026-10-17</time></div>
+              <h3>You&#x27;re Sitting On Data That Tells You Exactly What To Do Next (How To Find It)</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UC22cR5ZC9yhhuHAogUgSzTQ" target="_blank" rel="noreferrer">Cal Hyslop <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="BsJGo1wFTvQ" data-title="New Skills! v1.3 brings /pr, /implement-spec, and /retro" aria-label="Play: New Skills! v1.3 brings /pr, /implement-spec, and /retro">
+              <img src="https://i.ytimg.com/vi/BsJGo1wFTvQ/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-10-05">2026-10-05</time></div>
+              <h3>New Skills! v1.3 brings /pr, /implement-spec, and /retro</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCswG6FSbgZjbWtdf_hMLaow" target="_blank" rel="noreferrer">Matt Pocock <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="DBdeFbNrIZI" data-title="Multi-Head Latent Attention Explained Visually: DeepSeek&#x27;s Secret to 93% Less GPU Memory" aria-label="Play: Multi-Head Latent Attention Explained Visually: DeepSeek&#x27;s Secret to 93% Less GPU Memory">
+              <img src="https://i.ytimg.com/vi/DBdeFbNrIZI/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-09-30">2026-09-30</time></div>
+              <h3>Multi-Head Latent Attention Explained Visually: DeepSeek&#x27;s Secret to 93% Less GPU Memory</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCqpacJgWdTXok-E8j7TCTPg" target="_blank" rel="noreferrer">Visual AI <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="channel">
+            <button class="yt-embed" type="button" data-video="ZhiG8YxdAcw" data-title="The Modern Coder Bootcamp (with AI) - New Course!" aria-label="Play: The Modern Coder Bootcamp (with AI) - New Course!">
+              <img src="https://i.ytimg.com/vi/ZhiG8YxdAcw/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">
+              <span class="yt-play" aria-hidden="true">▶</span>
+            </button>
+            <div class="channel-copy">
+              <div class="project-meta"><span>AI</span><time datetime="2026-09-28">2026-09-28</time></div>
+              <h3>The Modern Coder Bootcamp (with AI) - New Course!</h3>
+              <a class="project-link" href="https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg" target="_blank" rel="noreferrer">Net Ninja <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <!-- youtube:end --></div>
+        <details class="channel-list">
+          <summary>See every channel I follow on these topics</summary>
+          <!-- youtube-list:start -->
+            <div class="channel-group"><h3>AI <span>22</span></h3><p><a href="https://www.youtube.com/channel/UCelfWQr9sXVMTvBzviPGlFw" target="_blank" rel="noreferrer">AI LABS</a><a href="https://www.youtube.com/channel/UCrnY0mjgFXhwzUus_a35WcA" target="_blank" rel="noreferrer">AI Lingua</a><a href="https://www.youtube.com/channel/UC0C-17n9iuUQPylguM1d-lQ" target="_blank" rel="noreferrer">AI News &amp; Strategy Daily | Nate B Jones</a><a href="https://www.youtube.com/channel/UCIgnGlGkVRhd4qNFcEwLL4A" target="_blank" rel="noreferrer">AI Search</a><a href="https://www.youtube.com/channel/UCuWq8fmaomKtuvnyb_m0zLQ" target="_blank" rel="noreferrer">AI Security Podcast</a><a href="https://www.youtube.com/channel/UC22cR5ZC9yhhuHAogUgSzTQ" target="_blank" rel="noreferrer">Cal Hyslop</a><a href="https://www.youtube.com/channel/UCuU9jE4MHHEIyYMbDfUPSew" target="_blank" rel="noreferrer">Caleb Writes Code</a><a href="https://www.youtube.com/channel/UCMwVTLZIRRUyyVrkjDpn4pA" target="_blank" rel="noreferrer">Cole Medin</a><a href="https://www.youtube.com/channel/UCn8ujwUInbJkBhffxqAPBVQ" target="_blank" rel="noreferrer">Dave Ebbelaar</a><a href="https://www.youtube.com/channel/UCvKRFNawVcuz4b9ihUTApCg" target="_blank" rel="noreferrer">David Shapiro</a><a href="https://www.youtube.com/channel/UCf4sXk66VuWGlg4Nh0tuCdA" target="_blank" rel="noreferrer">Devsplainers</a><a href="https://www.youtube.com/channel/UCOXRjenlq9PmlTqd_JhAbMQ" target="_blank" rel="noreferrer">Eric Tech</a><a href="https://www.youtube.com/channel/UCKWaEZ-_VweaEx1j62do_vQ" target="_blank" rel="noreferrer">IBM Technology</a><a href="https://www.youtube.com/channel/UCxVxcTULO9cFU6SB9qVaisQ" target="_blank" rel="noreferrer">Jack Roberts</a><a href="https://www.youtube.com/channel/UCSWj8mqQCcrcBlXPi4ThRDQ" target="_blank" rel="noreferrer">KodeKloud</a><a href="https://www.youtube.com/channel/UCswG6FSbgZjbWtdf_hMLaow" target="_blank" rel="noreferrer">Matt Pocock</a><a href="https://www.youtube.com/channel/UCawZsQWqfGSbCI5yjkdVkTA" target="_blank" rel="noreferrer">Matthew Berman</a><a href="https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg" target="_blank" rel="noreferrer">Net Ninja</a><a href="https://www.youtube.com/channel/UC8wZnXYK_CGKlBcZp-GxYPA" target="_blank" rel="noreferrer">NeuralNine</a><a href="https://www.youtube.com/channel/UC55ODQSvARtgSyc8ThfiepQ" target="_blank" rel="noreferrer">Sam Witteveen</a><a href="https://www.youtube.com/channel/UCqB1bhMwGsW-yefBxYwFCCg" target="_blank" rel="noreferrer">Tonbi&#x27;s AI Garage</a><a href="https://www.youtube.com/channel/UCqpacJgWdTXok-E8j7TCTPg" target="_blank" rel="noreferrer">Visual AI</a></p></div>
+            <div class="channel-group"><h3>Security <span>3</span></h3><p><a href="https://www.youtube.com/channel/UCP7WmQ_U4GB3K51Od9QvM0w" target="_blank" rel="noreferrer">David Bombal</a><a href="https://www.youtube.com/channel/UC4EUQtTxeC8wGrKRafI6pZg" target="_blank" rel="noreferrer">Taylor Walton</a><a href="https://www.youtube.com/channel/UCnAqVRjQ1Gz-ZJqcTSnBCWA" target="_blank" rel="noreferrer">The Social Dork | Cyber Security</a></p></div>
+          <!-- youtube-list:end -->
+        </details>
+      </section>
+
       <section class="section" id="experience" aria-labelledby="experience-title">
         <div class="section-head">
           <div><p class="eyebrow">Experience</p><h2 id="experience-title">A career built around making systems safer.</h2></div>
@@ -308,5 +613,6 @@
   </div>
   <script data-goatcounter="https://irekromaniuk.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
   <script src="analytics.js" defer></script>
+  <script src="youtube.js" defer></script>
 </body>
 </html>
