@@ -85,16 +85,16 @@
     .section-intro { max-width: 410px; margin-bottom: 2px; color: var(--muted); font-size: 13px; }
     .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .project { min-height: 230px; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 22px; border: 1px solid var(--line); background: var(--white); }
-    .project:nth-child(2) { background: var(--blue); border-color: var(--blue); }
-    .project:nth-child(3) { background: #e8e4d8; border-color: #e8e4d8; }
-    .project:nth-child(4) { background: var(--green); border-color: var(--green); color: white; }
+    .project:nth-child(4n+2) { background: var(--blue); border-color: var(--blue); }
+    .project:nth-child(4n+3) { background: #e8e4d8; border-color: #e8e4d8; }
+    .project:nth-child(4n) { background: var(--green); border-color: var(--green); color: white; }
     .project-meta { display: flex; width: 100%; justify-content: space-between; gap: 10px; color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-    .project:nth-child(4) .project-meta { color: var(--lime); }
+    .project:nth-child(4n) .project-meta { color: var(--lime); }
     .project h3 { max-width: 470px; margin: 24px 0 9px; font-family: var(--serif); font-size: 27px; font-weight: 400; letter-spacing: -.025em; line-height: 1.1; }
     .project p { max-width: 485px; margin-bottom: 18px; color: var(--muted); font-size: 12px; }
-    .project:nth-child(4) p { color: #d4e3df; }
+    .project:nth-child(4n) p { color: #d4e3df; }
     .project-link { display: inline-flex; gap: 8px; align-items: center; color: var(--green); font-size: 11px; font-weight: 750; text-decoration: none; }
-    .project:nth-child(4) .project-link { color: var(--lime); }
+    .project:nth-child(4n) .project-link { color: var(--lime); }
     .project-link:hover { text-decoration: underline; }
     .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin-top: 16px; }
     .principle { padding: 18px; border-top: 2px solid var(--green); background: #ecebe3; }
@@ -236,7 +236,7 @@
       <section class="section" id="work" aria-labelledby="work-title">
         <div class="section-head">
           <div><p class="eyebrow">Selected projects</p><h2 id="work-title">Applied AI, grounded in practice.</h2></div>
-          <p class="section-intro">A selection of independent work across AI-assisted security operations, small-model training, and automation. Each project links to its source.</p>
+          <p class="section-intro">A selection of independent work across AI-assisted security operations, small-model training, agent workflows, and tools I build for my own interests. Each project links to its source.</p>
         </div>
         <div class="project-grid">
           <article class="project">
@@ -258,6 +258,26 @@
             <div class="project-meta"><span>AI · Mini project</span><span>Fine-tuning</span></div>
             <div><h3>Fine-tuning LLMs Lab</h3><p>A hands-on small-model lab covering supervised fine-tuning with LoRA, jailbreak evaluation, and preparing preference data for DPO.</p></div>
             <a class="project-link" href="https://github.com/irom77/fine-tuning-llms" target="_blank" rel="noreferrer">See the fine-tuning lab <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="project">
+            <div class="project-meta"><span>AI · Computer vision</span><span>Python</span></div>
+            <div><h3>Racegow</h3><p>Finds the fastest three consecutive clean laps in raw FPV race footage. It reads the on-screen timer, detects start-gate crossings, filters crashes, and exports a highlight with a lap-time overlay. Packaged as an agent skill for Claude Code and Codex.</p></div>
+            <a class="project-link" href="https://github.com/irom77/Racegow" target="_blank" rel="noreferrer">View Racegow on GitHub <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="project">
+            <div class="project-meta"><span>Game · Learning tool</span><span>TypeScript</span></div>
+            <div><h3>ContractPlay</h3><p>A browser app for playing, learning, and reviewing contract bridge, with configurable bots, SAYC and 2/1 bidding, PBN deal import, hand history, and card-play hints.</p></div>
+            <a class="project-link" href="https://github.com/irom77/ContractPlay" target="_blank" rel="noreferrer">View ContractPlay on GitHub <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="project">
+            <div class="project-meta"><span>AI · Video restoration</span><span>Python</span></div>
+            <div><h3>Family Shorts</h3><p>Agent skills and scripts that restore old DV camcorder tapes into short vertical videos with bilingual captions: scene detection, deinterlacing, stabilizing, and denoising, with review before anything is published.</p></div>
+            <a class="project-link" href="https://github.com/irom77/family-shorts" target="_blank" rel="noreferrer">View Family Shorts on GitHub <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="project">
+            <div class="project-meta"><span>Agent infrastructure</span><span>Documentation</span></div>
+            <div><h3>Orca on WSL</h3><p>Setup and recovery notes for running a remote AI-agent runtime in Ubuntu on WSL and reaching it from desktop and mobile clients over Tailscale, written so no tokens or addresses are published.</p></div>
+            <a class="project-link" href="https://github.com/irom77/orca-wsl-setup" target="_blank" rel="noreferrer">Read the Orca on WSL notes <span aria-hidden="true">↗</span></a>
           </article>
         </div>
         <div class="principles" aria-label="Project principles">
