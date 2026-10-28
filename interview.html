@@ -93,10 +93,10 @@
     <main>
       <section class="intro" aria-labelledby="page-title">
         <p class="eyebrow">Interview answers</p>
-        <h1 id="page-title">How I answer common interview questions.</h1>
+        <h1 id="page-title">How I answer common questions.</h1>
         <p class="lead">Answers to questions recruiters and hiring managers often ask, in my own words. Open a question to read the full answer.</p>
         <p class="note">Each answer is reviewed for public sharing. Employers aren’t named, and confidential work is described only at a high level.</p>
-        <p class="meta">Last reviewed: <time datetime="2026-10-22">October 22, 2026</time></p>
+        <p class="meta">Last reviewed: <time datetime="2026-10-28">October 28, 2026</time></p>
       </section>
 
       <!-- TRACKS: one <section class="track"> per track that has at least one approved answer, in this order:
@@ -112,6 +112,15 @@
               <p><span class="label">Situation</span>In one role, our firewall rules were reactive. They were added ad hoc or pulled from static public blocklists, and updates were infrequent, which left us blind to new, active threat actors. The firewall was already classifying security events; it just had no dynamic enforcement.</p>
               <p><span class="label">Action</span>I owned the whole initiative. I set the infraction velocity thresholds, designed the pipeline, and wrote the automation code from scratch to insert block rules in real time. Instead of relying on outside threat feeds, it acted on the firewall's own event classification, so it responded to what attackers were actually doing against us.</p>
               <p><span class="label">Result</span>Day-to-day metrics showed it actively dropping threats every day, and we never recorded a single false positive. It was effective enough that authorized penetration tests had to be explicitly allowlisted before they could run.</p>
+            </div>
+          </details>
+          <details id="auto-tooling">
+            <summary><h3>How do you choose between SOAR, Ansible, and plain Python for a security automation?</h3><p>I start by researching what already exists, such as an Ansible or Terraform module, a Python library, or an open-source project, and build only what's missing, keeping the result as small as the need. I use AI skills to speed up both the research and the review.</p></summary>
+            <div class="answer">
+              <p><span class="label">Situation</span>For a personal learning project, I wanted a command-line tool that could enrich, summarize, or audit security incidents. Instead of starting from zero, I used an open-source SOC platform that already did LLM-based case analysis, but inside a Django web application with a database.</p>
+              <p><span class="label">Action</span>I extracted the case-analysis part into a standalone CLI. I wrote the CLI and input adapters from scratch, reused the upstream report schema with credit to the original project, and dropped Django and the database because a CLI didn't need them. Every dependency I kept is deliberate; for professional work I'd remove external dependencies as far as possible, because each one adds risk. I used an AI skill to review the code for security. For a web version, I'd choose something lightweight like FastAPI, or React with Deno instead of Node.js. For a full SOAR platform, I'd weigh a modern agentic SOAR product against building a custom one, and I'd lean toward custom, because it can deliver exactly the integrations an organization needs and be supported by its internal team.</p>
+              <p><span class="label">Result</span>The tool runs on synthetic incidents in Splunk SOAR-style and generic formats and writes a separate report without modifying the source case. I've since learned there are tools that can turn almost any web app into a CLI, which I would evaluate first today.</p>
+              <p class="links"><a href="https://github.com/irom77/soc-analyst" target="_blank" rel="noreferrer">Standalone SOC Case Analyzer ↗</a><a href="https://github.com/FunnyWolf/agentic-soc-platform" target="_blank" rel="noreferrer">Agentic SOC Platform (upstream) ↗</a></p>
             </div>
           </details>
         </div>
